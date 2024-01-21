@@ -1,0 +1,18 @@
+
+[
+  {
+    "nomeDoenca": "Nome da Doença 1",
+    "descricao": "Descrição da doença 1",
+    "imagemReferencia": "https://example.com/image1.jpg",
+    "tratamentos": [
+      {
+        "nomeTratamento": "Tratamento 1",
+        "descricaoTratamento": "Descrição do tratamento 1"
+      },
+      {
+        "nomeTratamento": "Tratamento 2",
+        "descricaoTratamento": "Descrição do tratamento 2"
+      }
+    ]
+  }
+]
