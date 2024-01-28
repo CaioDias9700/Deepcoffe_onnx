@@ -9,65 +9,80 @@ export class Treatment extends Component {
 
     if (!doenca) {
       return (
-        <View style={styles.container}>
+        <View style={[styles.container]}>
           <Text style={styles.centerText}>Doença não encontrada.</Text>
         </View>
       );
     }
-
+    const imagemBase64 = doenca.imagemReferencia;
+    const imagemUri = `data:image/png;base64,${imagemBase64}`;
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text style={[styles.centerText, styles.headerText]}>{doenca.nomeDoenca}</Text>
-        <Text style={styles.centerText}>{doenca.descricao}</Text>
-        <Text style={[styles.centerText, styles.treatmentText]}>Tratamentos:</Text>
-        <SafeAreaView style={{flex: 1}}>
-        <FlatList
-          style={styles.flatListContainer}
-          data={doenca.tratamentos}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <View style={styles.tableRow}>
-              <Text style={styles.tableCell}>{item.nomeTratamento}</Text>
-              <Text style={styles.tableCell}>{item.descricaoTratamento}</Text>
-              <Text style={styles.tableCell}>{item.descricaoTratamento}</Text>
-            </View>
-          )}
-        />
-        </SafeAreaView>
-        <Image source={{ uri: doenca.imagemReferencia }} style={{ width: 200, height: 200, alignSelf: 'center' }} />
-      </ScrollView>
+        <ScrollView style={[styles.ScrollView]}>
+          <Text style={[styles.centerText, styles.headerText]}>{doenca.nomeDoenca}</Text>
+          <Text style={styles.centerText}>{doenca.descricao}</Text>
+          <FlatList
+            style={[styles.flatListContainer,{flex:1}]}
+            data={doenca.tratamentos}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <View style={[styles.tableRow,{ backgroundColor: 'white' }]}>
+                <Text style={styles.tableCell}>{item.nomeTratamento}</Text>
+                <Text style={styles.tableCell}>{item.descricaoTratamento}</Text>
+                <Text style={styles.tableCell}>{item.descricaoTratamento}</Text>
+              </View>
+            )}
+          />
+          <Text style={[styles.centerText, styles.treatmentText]}>Tratamentos:</Text>
+          <Image source={{ uri: imagemUri }} style={styles.image} />
+        </ScrollView>
     );
   }
 }
-
 const styles = StyleSheet.create({
+  ScrollView:{
+    backgroundColor: "#E0E2E5",
+  },
   centerText: {
     textAlign: 'center',
+  },
+  TextInfo:{
+    alignItems: "center",
+    width: "90%"
   },
   headerText: {
     fontSize: 25,
     fontWeight: 'bold',
+    marginTop: 10,
   },
   treatmentText: {
-    marginTop: 10,
+    marginTop: 20,
     marginBottom: 1,
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
   },
   tableRow: {
+    borderWidth:1,
+    borderRadius:0, 
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#E0E2E5',
     paddingVertical: 21,
+    
   },
   tableCell: {
+    borderWidth:0,
     flex: 1,
     textAlign: 'center',
   },
   flatListContainer: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5, // Optional: If you want rounded corners
-    marginTop: 10,  // Optional: Adjust the spacing
+    marginTop: 10,
+    marginLeft:10,
+    marginRight: 10
   },
+  image:{
+    width: 400, 
+    height: 200, 
+    alignSelf: 'center',
+    marginTop: "2%",
+    marginBottom: 25
+  }
 });

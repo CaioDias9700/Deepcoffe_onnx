@@ -1,0 +1,1 @@
+{"ast":null,"code":"export * from \"./TabBar\";\nexport * from \"./NewCamera\";","map":{"version":3,"names":[],"sources":["C:/Users/caioe/Deepcoffe02-master/src/componets/organisms/index.js"],"sourcesContent":["export * from \"./TabBar\";\nexport * from \"./NewCamera\";\n"],"mappings":"AAAA;AACA"},"metadata":{},"sourceType":"module","externalDependencies":[]}

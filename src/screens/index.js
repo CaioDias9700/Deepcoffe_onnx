@@ -6,3 +6,5 @@ export * from "./LoadingScreen";
 export * from "./Save";
 export * from "./Class";
 export * from "./Treatment";
+export * from "./Slider"
+export * from "./CameraScreen.js"

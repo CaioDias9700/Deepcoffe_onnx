@@ -70,9 +70,9 @@ export const NewCamera = () => {
 
   const enviarImagemParaAPI = async (imagemUri) => {
     try {
-      const response = await fetch("localhost:5000/classificar", {
+      const response = await fetch("http://192.168.0.106:400/predict", {
         method: "POST",
-        body: JSON.stringify({ "imagem_base64": await getBase64(imagemUri) }), // Envie os dados em base64 como JSON
+        body: JSON.stringify({ "image": await getBase64(imagemUri) }), // Envie os dados em base64 como JSON
         headers: {
           "Content-Type": "application/json",
         },
@@ -81,7 +81,7 @@ export const NewCamera = () => {
       if (response.status === 200) {
         const data = await response.json();
         console.log("Resposta da API:", data);
-        navigation.navigate('Perfil', { classificacao: data });
+        navigation.navigate('Perfil', { classificacao: data, p_imagem: imagemUri });
       }
 
       // Desativa a tela de carregamento após receber a resposta da API

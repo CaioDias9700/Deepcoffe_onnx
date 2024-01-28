@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Home, SplashScreen, New, Save , Class, User, Treatment } from "../../../screens";
+import { Home, SplashScreen, New, Save , Class, User, Treatment, Slider, CameraScreen} from "../../../screens";
 import { Entypo, Feather } from "@expo/vector-icons";
 import { ButtonNew } from '../../atoms';
 
@@ -58,8 +58,8 @@ export const TabBar = () => {
         }}
       />
       <Tab.Screen
-        name="Notícias"
-        component={Treatment}
+        name="Perfil"
+        component={CameraScreen}
         options={{
           headerShown: true,
           headerTintColor: '#F7F7F7',

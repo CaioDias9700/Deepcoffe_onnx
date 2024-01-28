@@ -3,7 +3,6 @@ import { AppRegistry } from 'react-native';
 import AppLoading from "expo-app-loading";
 import { ThemeProvider } from "styled-components/native";
 import { NavigationContainer } from "@react-navigation/native";
-import { Button, Text } from 'react-native';
 
 import Routes from "./src/routes/index";
 
@@ -39,5 +38,4 @@ export default function App() {
   );
 }
 
-// Registre o componente principal do seu aplicativo
 AppRegistry.registerComponent("DeepCoffe", () => App);
